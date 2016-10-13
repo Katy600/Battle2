@@ -17,11 +17,16 @@ class Battle < Sinatra::Base
     p $player1
     @player1 = $player1.name
     @player2 = $player2.name
+    @points = $player1.points
+    @points = $player2.points
    erb(:play)
   end
 
 get '/attack' do
+  $player2.reduce
   erb(:attack)
 end
+
+
   run! if app_file == $0
 end

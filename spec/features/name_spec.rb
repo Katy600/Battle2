@@ -22,3 +22,12 @@ end
       expect(page).to have_content('Attack Successfull!')
     end
 end
+
+feature 'Reduce HP' do
+  scenario "it will reduce Player2's HP by 10" do
+    sign_in_and_play
+    click_button('Attack')
+    click_button('Return to Play')
+    expect(page).to have_content("Katy's hit points: 50/60")
+  end 
+end
